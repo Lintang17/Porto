@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Lintang Sururum | Portofolio Magang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #111827;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-size: 110%; 
+    padding-top: 80px; 
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px; 
+    margin: 0 auto;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #ffffff;
+    border-bottom: 1px solid #eef2ff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  }
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  .logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #111827;
+  }
+  .logo span {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links li a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #4b5563;
+    font-size: 1rem;
+    transition: color 0.2s;
+  }
+  .nav-links li a:hover {
+    color: #2563eb;
+  }
+  .menu-toggle {
+    display: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #111827;
+  }
+
+  .hero {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+    padding: 2rem 0;
+  }
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero-text .tag {
+    display: inline-block;
+    background: #e0e7ff;
+    color: #4f46e5;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.3rem 1.2rem;
+    border-radius: 30px;
+    margin-bottom: 1rem;
+  }
+  .hero-text h1 {
+    font-size: 3.4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #111827;
+  }
+  .hero-text h1 span {
+    color: #2563eb;
+  }
+  .hero-text p {
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+  .btn-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #2563eb;
+    color: white;
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+  }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid #cbd5e1;
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #4b5563;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+  }
+  .hero-image {
+    text-align: center;
+  }
+  .hero-image img {
+    width: 100%;
+    max-width: 340px;
+    border-radius: 50%;
+    box-shadow: 0 25px 40px -15px rgba(0,0,0,0.15);
+    border: 5px solid white;
+  }
+
+  section {
+    padding: 3.5rem 0; 
+  }
+  .section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .section-title .badge {
+    display: inline-block;
+    background: #e0e7ff;
+    color: #4f46e5;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.2rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.5px;
+  }
+  .section-title h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #111827;
+  }
+  .section-title p {
+    color: #6b7280;
+    margin-top: 0.4rem;
+    font-size: 1.05rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .info-card {
+    background: #ffffff;
+    border-radius: 1.2rem;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid #eef2ff;
+    transition: all 0.2s;
+  }
+  .info-card:hover {
+    transform: translateY(-3px);
+    border-color: #c7d2fe;
+  }
+  .info-card i {
+    font-size: 2rem;
+    color: #2563eb;
+    margin-bottom: 0.8rem;
+  }
+  .info-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.4rem;
+  }
+  .info-card p {
+    font-size: 0.95rem;
+    color: #6b7280;
+    line-height: 1.5;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+  }
+  .project-card {
+    background: #ffffff;
+    border-radius: 1.2rem;
+    padding: 1.5rem;
+    border: 1px solid #eef2ff;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .project-card:hover {
+    transform: translateY(-4px);
+    border-color: #2563eb;
+    box-shadow: 0 10px 25px -10px rgba(37,99,235,0.15);
+  }
+  .project-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.6rem;
+  }
+  .project-card p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    flex-grow: 1;
+  }
+  .project-img {
+    width: 100%;
+    height: 260px;            
+    object-fit: contain;       
+    background: #f8fafc;       
+    border: 1px solid #eef2ff;
+    border-radius: 1rem;
+    padding: 12px;
+    display: block;
+    transition: transform 0.25s ease;
+  }
+  .project-img:hover {
+    transform: scale(1.03);
+  }
+  .img-placeholder {
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: 1rem;
+    color: #6b7280;
+    font-size: 0.95rem;
+    border: 1px dashed #cbd5e1;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .table-wrapper {
+    background: #ffffff;
+    border-radius: 1rem;
+    overflow-x: auto;
+    border: 1px solid #eef2ff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .skkni-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+  }
+  .skkni-table th {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: white;
+    padding: 1.2rem;
+    text-align: left;
+    font-weight: 600;
+  }
+  .skkni-table td {
+    padding: 1.2rem;
+    border-bottom: 1px solid #f1f5f9;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+  .skkni-table tr:nth-child(even) {
+    background: #f8fafc;
+  }
+  .skkni-table tr:hover {
+    background: #eff6ff;
+  }
+  .skkni-table tr:last-child td {
+    border-bottom: none;
+  }
+  .code {
+    font-family: monospace;
+    font-weight: 700;
+    color: #2563eb;
+    font-size: 1.05rem;
+  }
+
+  .kesimpulan-box {
+  background: linear-gradient(135deg, #ffffff, #f8fbff);
+  border: 1px solid #eef2ff;
+  border-radius: 1.5rem;
+  padding: 3rem;
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.kesimpulan-box h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.kesimpulan-box p {
+  color: #4b5563;
+  line-height: 1.9;
+  font-size: 1.08rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .kesimpulan-box {
+    padding: 2rem 1.5rem;
+  }
+
+  .kesimpulan-box h2 {
+    font-size: 1.6rem;
+  }
+
+  .kesimpulan-box p {
+    font-size: 1rem;
+  }
+}
+ .contact-card {
+    background: #f8fafc;
+    border-radius: 1.5rem;
+    padding: 1rem 1.6rem 1.8rem; 
+    text-align: center;
+    border: 1px solid #eef2ff;
+  }
+  #contact .section-title {
+    margin-bottom: 0.8rem;
+  }
+  #contact {
+    padding-top: 2rem;
+  }
+  .contact-email {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.9rem 1.8rem;
+    border-radius: 50px;
+    margin: 0.2rem 0 0;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1.05rem;
+  }
+  .contact-email:hover {
+    border-color: #2563eb;
+    background: #eff6ff;
+  }
+  .contact-email i {
+    color: #2563eb;
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+  }
+  .social-links a {
+    width: 44px;
+    height: 44px;
+    background: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #4b5563;
+    font-size: 1.1rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s;
+  }
+  .social-links a:hover {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+    transform: translateY(-3px);
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    border-top: 1px solid #eef2ff;
+    background: #ffffff;
+  }
+
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .lightbox.active {
+    display: flex;
+  }
+  .lightbox-img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 0.8rem;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 900px) {
+    body {
+      font-size: 100%;
+      padding-top: 70px;
+    }
+    .hero-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 2.5rem;
+    }
+    .hero-text h1 {
+      font-size: 2.6rem;
+    }
+    .btn-group {
+      justify-content: center;
+    }
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+    .info-grid {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+    .hasil-list {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 65px;
+      left: 0;
+      width: 100%;
+      background: white;
+      padding: 1.5rem;
+      text-align: center;
+      gap: 1rem;
+      border-bottom: 1px solid #eef2ff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .nav-links.show {
+      display: flex;
+    }
+    .menu-toggle {
+      display: block;
+    }
+    section {
+      padding: 2.5rem 0;
+    }
+    .hero-image img {
+      max-width: 240px;
+    }
+    .kesimpulan-box {
+      padding: 2rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-content">
+    <div class="logo">Portofolio <span>Magang</span></div>
+    <div class="menu-toggle" id="mobile-menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#info">Informasi</a></li>
+      <li><a href="#pekerjaan">Kegiatan</a></li>
+      <li><a href="#skkni">SKKNI</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <img class="lightbox-img" id="lightbox-img" alt="">
+</div>
+
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <div class="hero-text" data-aos="fade-up">
+      <div class="tag">Staf Pengembangan Teknologi Informasi</div>
+      <h1>Lintang Sururum <br><span>Salsafaiz Martalia</span></h1>
+      <p>Lulusan Teknologi Informasi dengan pengalaman magang sebagai Staf Pengembangan Teknologi Informasi di PT Abna Samanhudisautika Husada. Memiliki pengalaman dalam pengembangan sistem informasi berbasis web dan <i>mobile</i> untuk mendukung proses administrasi, pengelolaan data, dan operasional layanan rumah sakit.</p>      
+      <div class="btn-group">
+        <a href="#" class="btn-primary"><i class="fas fa-download"></i> Unduh CV</a>
+        <a href="#contact" class="btn-outline"><i class="fas fa-envelope"></i> Hubungi Saya</a>
+      </div>
+    </div>
+    <div class="hero-image" data-aos="fade-left">
+      <img src="img/foto-warna.jpg" alt="Foto Profil Resmi">
+    </div>
+  </div>
+</section>
+
+<section id="info">
+  <div class="container">
+    <div class="section-title" data-aos="fade-up">
+      <div class="badge">Informasi</div>
+      <h2>Detail Magang</h2>
+      <p>Program Kementerian Ketenagakerjaan RI</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-card" data-aos="fade-up">
+        <i class="fas fa-building"></i>
+        <h3>Instansi Magang</h3>
+        <p>PT Abna Samanhudisautika Husada<br>Kepanjen, Malang</p>
+      </div>
+      <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-user-tie"></i>
+        <h3>Posisi</h3>
+        <p>Staf Pengembangan Teknologi Informasi</p>
+      </div>
+      <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-calendar-alt"></i>
+        <h3>Durasi Magang</h3>
+        <p>6 Bulan</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pekerjaan">
+  <div class="container">
+    <div class="section-title" data-aos="fade-up">
+      <div class="badge">Kegiatan</div>
+      <h2>Pengalaman & Project Magang</h2>
+      <p>Daftar dan dokumentasi project</p>
+    </div>
+    <div class="project-grid">
+      <div class="project-card" data-aos="fade-up">
+        <h3><i class="fas fa-chalkboard-user"></i> Dashboard Rekam Medis</h3>
+        <p>Membangun <i>dashboard</i> rekam medis untuk membantu monitoring operasional dan menyajikan visualisasi data.</p>
+        <img src="img/dashboard.png" class="project-img" onclick="openLightbox(this.src)" alt="Dashboard Rekam Medis">
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <h3><i class="fas fa-bed"></i> Informasi Ketersediaan Bed</h3>
+        <p>Membangun halaman informasi ketersediaan <i>bed</i> secara <i>real-time</i> untuk mendukung layanan operasional pada unit layanan informasi.</p>
+        <img src="img/ketersediaan-bed.png" class="project-img" onclick="openLightbox(this.src)" alt="Ketersediaan Bed">
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <h3><i class="fas fa-calendar-check"></i> Pendaftaran Pasien Online</h3>
+        <p>Membangun halaman sistem pendaftaran pasien <i>online</i> untuk mendukung proses administrasi pendaftaran.</p>
+        <img src="img/pendaftaran-pasien.png" class="project-img" onclick="openLightbox(this.src)" alt="Pendaftaran Pasien Online">
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="250">
+        <h3><i class="fas fa-user-plus"></i> Titip Daftar Pasien Online</h3>
+        <p>Mengembangkan halaman titip daftar pasien online untuk mengoptimalkan manajemen antrean di rumah sakit.</p>
+        <img src="img/titip-daftar-pasien.png" class="project-img" onclick="openLightbox(this.src)" alt="Titip Daftar Pasien">
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <h3><i class="fas fa-handshake"></i> Aplikasi Mobile Monitoring Kerja Sama</h3>
+        <p>Merancang aplikasi monitoring kerja sama untuk membantu pemantauan data dan informasi kerja sama.</p>
+        <img src="img/monitoring.png" class="project-img" onclick="openLightbox(this.src)" alt="Struktur UI Monitoring Kerja Sama">
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="350">
+        <h3><i class="fas fa-fingerprint"></i> Aplikasi Mobile Attendance</h3>
+        <p>Membangun aplikasi presensi berbasis Android dengan fitur GPS dan face recoignition untuk mendukung pengelolaan kehadiran.</p>
+        <img src="img/attendance.jpeg" class="project-img" onclick="openLightbox(this.src)" alt="Aplikasi Mobile Attendance">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skkni">
+  <div class="container">
+    <div class="section-title" data-aos="fade-up">
+      <div class="badge">Unit Kompetensi</div>
+      <h2>Pemetaan Relevansi SKKNI</h2>
+      <p>Pengelolaan Administrasi Perkantoran</p>
+    </div>
+    <div class="table-wrapper" data-aos="fade-up">
+      <table class="skkni-table">
+        <thead>
+          <tr>
+            <th>Kode Unit</th>
+            <th>Unit Kompetensi</th>
+            <th>Relevansi dengan Magang</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">N.82ADM00.057.3</td><td>Mengoperasikan Aplikasi Perangkat Lunak</td><td>Menggunakan berbagai perangkat lunak seperti code editor, browser, dan Postman untuk mendukung proses pengembangan, pengujian, serta implementasi sistem informasi berbasis web dan mobile.</td></tr>
+          <tr><td class="code">N.82ADM00.053.3</td><td>Memproduksi Dokumen di Alat Pengolah Data dan Angka</td><td>Mengelola dan menyajikan data operasional menjadi informasi yang mudah dipahami melalui dashboard monitoring dan visualisasi data.</td></tr>
+          <tr><td class="code">N.82ADM00.028.3</td><td>Mengaplikasikan Keterampilan Dasar Komunikasi</td><td>Melakukan koordinasi dan diskusi dengan mentor maupun tim terkait kebutuhan sistem, evaluasi fitur, serta penyelesaian kendala.</td></tr>
+          <tr><td class="code">N.82ADM00.045.3</td><td>Memberikan Pelayanan kepada Pelanggan</td><td>Memberikan penjelasan penggunaan sistem kepada pengguna internal, menerima feedback, serta melakukan penyesuaian fitur untuk mendukung kebutuhan administrasi dan pelayanan rumah sakit.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="kesimpulan">
+  <div class="container">
+    <div class="kesimpulan-box" data-aos="fade-up">
+      <h2>Kesimpulan</h2>
+      <p>Pengalaman magang sebagai Staf Pengembangan Teknologi Informasi memberikan pengalaman dalam pengembangan dan implementasi sistem informasi untuk mendukung administrasi dan operasional layanan rumah sakit. Kegiatan yang dilakukan meliputi pengembangan sistem berbasis web dan mobile, pengolahan serta penyajian data operasional, pengujian sistem, serta koordinasi dengan pengguna dan tim guna memastikan sistem berjalan sesuai kebutuhan layanan.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-title" data-aos="fade-up">
+      <div class="badge">Hubungi Saya</div>
+      <h2>Kontak Resmi</h2>
+    </div>
+    <div class="contact-card" data-aos="fade-up">
+      <div class="contact-email" onclick="copyEmail()">
+        <i class="fas fa-envelope"></i> <span>sururumlintang@gmail.com</span>
+        <i class="fas fa-copy"></i>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Lintang Sururum Salsafaiz Martalia • Dokumen Portofolio Magang Kerja Resmi</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 600, once: true, offset: 40 });
+
+  const menuBtn = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('navLinks');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  }
+
+  window.copyEmail = function() {
+    navigator.clipboard.writeText("sururumlintang@gmail.com").then(() => {
+      alert("Alamat email berhasil disalin.");
+    });
+  };
+
+  function openLightbox(src) {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = src;
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    const lb = document.getElementById('lightbox');
+    lb.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+</body>
+</html>
